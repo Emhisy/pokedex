@@ -1,24 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+
+import { Routes, Route, NavLink } from "react-router-dom";
+
+import './index.css';
+import { Pokemons, Pokemon } from './containers/index'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className={""}>
+          <header>
+              <nav>
+                  <ul>
+                      <li>
+                          <NavLink
+                              to="/"
+                              className={({ isActive }) => (isActive ? "active" : "")}
+                          >
+                              Pokedex
+                          </NavLink>
+                      </li>
+                  </ul>
+              </nav>
+          </header>
+          <Routes>
+              <Route path="/" element={<Pokemons/>} />
+              <Route path="pokemon/:name" element={<Pokemon/>} />
+          </Routes>
+      </div>
   );
 }
 
