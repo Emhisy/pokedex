@@ -15,8 +15,8 @@ const Item = ({name, index}) => {
     }, [isHovered])
 
     return (
-    <div className={'hover:bg-red-600 h-32 py-1 pr-4 pl-10'} pokemon-id={`${index}`} ref={hoverRef}>
-        <div className='flex flex-row hover:bg-orange-400 bg-amber-100 border-4 border-amber-50 my-2 rounded-l-full' id={'hover-item'}>
+    <div className={'hover:bg-red-600 rounded-l-lg border border-b-4 hover:border-[#76465D] border-[#ffffff] hover:drop-shadow-md py-2 pr-4 pl-10'} pokemon-id={`${index}`} ref={hoverRef}>
+        <div className='flex flex-row hover:bg-orange-300 bg-amber-100 border-4 border-amber-50 rounded-l-full' id={'hover-item'}>
             <div className='w-1/5'/>
             <div className='w-1/5'>
                 <img className="" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index}.png`}/>

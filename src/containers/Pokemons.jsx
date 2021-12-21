@@ -4,6 +4,7 @@ import {getPokemons} from "./Service";
 import {List} from '../components/List/index';
 import {usePageBottom} from '../utils/index';
 import {Item2} from '../components/Item2/index'
+import './Pokemons.css'
 
 const Pokemons = () => {
     const { pokemons, setPokemons, pokemonId } = useContext(MainContext);
@@ -25,14 +26,17 @@ const Pokemons = () => {
     }
 
     if(pokemons.length === 0){
-        return <div>loading</div>;
+        return <div>
+            <div  className={""}/>
+            <div id={"pokemons"}/>
+        </div>;
     }
     return (
-        <div className={"flex flex-row"}>
-            <div  className={"basis-3/5"}>
-                <Item2 pokemonId={pokemonId}/>
+        <div className={"grid lg:grid-cols-2"}>
+            <div>
+                    <Item2 pokemonId={pokemonId}/>
             </div>
-            <div  className={"basis-2/5"}>
+            <div  className={"lg:mt-0 mt-7 overflow-y-scroll overscroll-auto max-h-[38rem]"} id={"pokemons"}>
                 <List pokemons={pokemons}/>
             </div>
         </div>

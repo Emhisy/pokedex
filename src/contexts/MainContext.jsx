@@ -1,4 +1,5 @@
-import { createContext, useState } from "react";
+import {createContext, useEffect, useState} from "react";
+import {getPokemons} from "../containers/Service";
 
 const MainContext = createContext({});
 
@@ -6,6 +7,16 @@ const Provider = ({ children }) => {
     const [text, setText] = useState("");
     const [pokemons, setPokemons] = useState([]);
     const [pokemonId, setPokemonId] = useState('0')
+
+
+    const fetchData = async () => {
+        const res = await getPokemons(0, 20)
+        setPokemons(pokemons.concat(res))
+    }
+
+    useEffect(() => {
+        fetchData()
+    }, [])
 
     const handleChange = (event) => {
         const inputValue = event.target.value;
