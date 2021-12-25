@@ -46,9 +46,11 @@ const Provider = ({ children }) => {
     };
 
     const FavoriteChange = (event, id) => {
+        console.log(id)
         let storedFavorite = getFavorite()
 
         const changeStatus = (pokemon, index) => {
+            console.log()
             if(pokemon.id.toString() === id.toString() ){
                 pokemon.favorite = !pokemon.favorite
                     if(pokemon.favorite) {
@@ -118,24 +120,46 @@ const Provider = ({ children }) => {
         return res.data.results;
     }
 
+    const getType = async (type) => {
+        const res = await axios({
+            method: "get",
+            url: `https://pokeapi.co/api/v2/type/${type}`
+        });
+        return res.data;
+    }
+
+    const onSubmitContactForm = (event) => {
+        const body = {
+            email: event.target.email.value,
+            message: event.target.message.value
+        };
+        const res = axios({
+            url: "",
+            method: "post",
+            body: JSON.stringify(body)
+        })
+    }
+
 
     return (
         <MainContext.Provider value={{
             pokemons,
             setPokemons,
-            handleSubmit,
-            handleChange,
             pokemonId,
             setPokemonId,
             filter,
             setFilter,
             allPokemons,
             favorite,
+            handleSubmit,
+            handleChange,
             getPokemon,
             getPokemons,
             FavoriteChange,
             getFavorite,
-            getTypes
+            getTypes,
+            getType,
+            onSubmitContactForm
         }}>
             {children}
         </MainContext.Provider>

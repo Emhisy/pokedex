@@ -2,7 +2,6 @@ import {useContext, useEffect, useState} from "react";
 import MainContext from "../contexts/MainContext";
 import {List, Item2, Form} from '../components';
 import {usePageBottom} from '../utils/index';
-import './Pokemons.css'
 import {useLocation} from "react-router-dom";
 
 const Pokemons = () => {
@@ -21,7 +20,7 @@ const Pokemons = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await getPokemons(offset, 20)
+            const res = await getPokemons(offset, 30)
             setPokemons(pokemons.concat(res))
             setOffset(offset+20)
         }
@@ -40,14 +39,9 @@ const Pokemons = () => {
     }
 
     return (
-        <div className={""}>
-            {/*<div>*/}
-            {/*    <Item2 pokemonId={pokemonId}/>*/}
-            {/*</div>*/}
-            <div  className={""} id={"pokemons"}>
-                <Form handleChange={handleChange} handleSubmit={handleSubmit} filter={filter}/>
-                <List pokemons={pokemons}/>
-            </div>
+        <div  className={"grid grid-cols-1 gap-4"} id={"pokemons"}>
+            <Form handleChange={handleChange} handleSubmit={handleSubmit} filter={filter}/>
+            <List pokemons={pokemons}/>
         </div>
     )
 }
