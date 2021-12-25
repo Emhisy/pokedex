@@ -1,7 +1,16 @@
-import {Detail} from './Detail';
-import {Item, Item2} from './Item';
-import {List} from './List';
-import {Form} from './Form';
+import {PokemonDetail} from './PokemonDetail';
+import {PokemonItem, PokemonMainImage} from './PokemonItem';
+import {PokemonList} from './PokemonList';
+import {SearchForm} from './SearchForm';
 import {ContactForm} from "./ContactForm";
+import {TypeItem} from './TypeItem';
 
-export {Detail, Item, Item2, List, Form, ContactForm};
+export {
+    PokemonDetail,
+    PokemonItem,
+    PokemonMainImage,
+    PokemonList,
+    SearchForm,
+    ContactForm,
+    TypeItem
+};

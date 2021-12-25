@@ -109,7 +109,7 @@ const Provider = ({ children }) => {
             method: "get",
             url: `https://pokeapi.co/api/v2/pokemon/${name}`
         })
-        return res.data;
+        return res.data
     }
 
     const getTypes = async () => {

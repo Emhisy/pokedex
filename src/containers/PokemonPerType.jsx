@@ -1,7 +1,7 @@
 import mainContext from "../contexts/MainContext";
 import {useContext, useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
-import {List} from "../components"
+import {PokemonList} from "../components"
 
 const PokemonPerType = () => {
     const {getType, getFavorite} = useContext(mainContext)
@@ -28,7 +28,7 @@ const PokemonPerType = () => {
     }, [])
 
     return <div>
-        <List pokemons={pokemons}/>
+        <PokemonList pokemons={pokemons}/>
     </div>;
 }
 

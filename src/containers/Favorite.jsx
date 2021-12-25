@@ -1,6 +1,6 @@
 import mainContext from "../contexts/MainContext";
 import {useContext, useEffect, useState} from "react";
-import {List, Item, Form} from '../components'
+import {PokemonList, PokemonItem, SearchForm} from '../components'
 
 const Favorite = () => {
     const {getFavorite, favorite, getPokemons} = useContext(mainContext)
@@ -30,7 +30,7 @@ const Favorite = () => {
     return (
         <div className={""}>
             <div  className={""} id={"pokemons"}>
-                <List pokemons={pokemons} />
+                <PokemonList pokemons={pokemons} />
             </div>
         </div>
     )

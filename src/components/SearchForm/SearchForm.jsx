@@ -1,4 +1,4 @@
-const Form = ({ filter, handleChange, handleSubmit }) =>
+const SearchForm = ({ filter, handleChange, handleSubmit }) =>
     (
         <div  className={"grid justify-items-stretch"}>
             <form onSubmit={handleSubmit} className="w-11/12 justify-self-center grid grid-cols-1 gap-4" >
@@ -7,7 +7,8 @@ const Form = ({ filter, handleChange, handleSubmit }) =>
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         id="username"
                         type="text"
-                        placeholder="Pokemon à rechercher"
+                        placeholder="Pokemon to display"
+                        name={"name"}
                         onChange={handleChange}
                         value={filter}
                     />
@@ -22,4 +23,4 @@ const Form = ({ filter, handleChange, handleSubmit }) =>
         </div>
 );
 
-export default Form;
+export default SearchForm;

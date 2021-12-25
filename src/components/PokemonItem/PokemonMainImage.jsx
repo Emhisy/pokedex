@@ -1,6 +1,6 @@
-import './Item.css'
+import './PokemonItem.css'
 
-const Item2 = ({pokemonId}) => {
+const PokemonMainImage = ({pokemonId}) => {
     if(pokemonId === '0' || pokemonId === undefined) {
         return <></>;
     }
@@ -15,4 +15,4 @@ const Item2 = ({pokemonId}) => {
         </div>);
 }
 
-export default Item2;
+export default PokemonMainImage;

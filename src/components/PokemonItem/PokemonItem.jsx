@@ -1,13 +1,13 @@
-import './Item.css';
+import './PokemonItem.css';
 import {useHover} from '../../utils/index';
 import MainContext from "../../contexts/MainContext";
 import {useContext, useEffect} from "react";
-import './Item.css';
+import './PokemonItem.css';
 import {Link} from "react-router-dom";
 import Color from 'color-thief-react';
 import {useColor} from 'color-thief-react';
 
-const Item = ({name, id, favorite}) => {
+const PokemonItem = ({name, id, favorite}) => {
     const {setPokemonId, pokemonId, FavoriteChange} = useContext(MainContext)
     const [hoverRef, isHovered] = useHover();
     const { data, loading, error } = useColor(
@@ -39,7 +39,7 @@ const Item = ({name, id, favorite}) => {
             {/*       checked={favorite}*/}
             {/*    />*/}
             {/*</div>*/}
-            <div className="flex items-center justify-center w-full mb-12">
+            <div className="flex items-center justify-center w-full mb-4">
                 <label
                     htmlFor={`favorite-${id}`}
                     className="flex items-center cursor-pointer"
@@ -77,4 +77,4 @@ const Item = ({name, id, favorite}) => {
     </div>
 )}
 
-export default Item;
+export default PokemonItem;

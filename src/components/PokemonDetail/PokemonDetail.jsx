@@ -1,4 +1,4 @@
-const Detail = ({pokemon}) => {
+const PokemonDetail = ({pokemon}) => {
     console.log(pokemon)
     return (
         <div className={""}>
@@ -150,4 +150,4 @@ const Detail = ({pokemon}) => {
     )
 }
 
-export default Detail;
+export default PokemonDetail;

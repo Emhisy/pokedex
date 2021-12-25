@@ -1,15 +1,13 @@
 import {useContext, useEffect, useState} from "react";
 import MainContext from "../contexts/MainContext";
-import {List, Item2, Form} from '../components';
+import {PokemonList, PokemonMainImage, SearchForm} from '../components';
 import {usePageBottom} from '../utils/index';
 import {useLocation} from "react-router-dom";
 
 const Pokemons = () => {
     const search = useLocation().search;
     const name = new URLSearchParams(search).get('name');
-    const { pokemons,
-        setPokemons,
-        handleSubmit,
+    const { handleSubmit,
         handleChange,
         filter,
         getPokemons,
@@ -17,12 +15,13 @@ const Pokemons = () => {
     } = useContext(MainContext);
     const [offset, setOffset] = useState(0);
     const isPageBottom = usePageBottom();
+    const [pokemons, setPokemons] = useState([])
 
     useEffect(() => {
         const fetchData = async () => {
             const res = await getPokemons(offset, 30)
             setPokemons(pokemons.concat(res))
-            setOffset(offset+20)
+            setOffset(offset+30)
         }
 
         if(name === '' || name === null) {
@@ -40,8 +39,8 @@ const Pokemons = () => {
 
     return (
         <div  className={"grid grid-cols-1 gap-4"} id={"pokemons"}>
-            <Form handleChange={handleChange} handleSubmit={handleSubmit} filter={filter}/>
-            <List pokemons={pokemons}/>
+            <SearchForm handleChange={handleChange} handleSubmit={handleSubmit} filter={filter}/>
+            <PokemonList pokemons={pokemons}/>
         </div>
     )
 }
