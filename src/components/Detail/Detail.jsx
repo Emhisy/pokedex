@@ -1,6 +1,74 @@
 const Detail = ({pokemon}) => {
     console.log(pokemon)
     return (
+        <div className={""}>
+        <div className="">
+            <div className="">
+                <div className="">
+                    <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`} width="96" height="96" alt=""/>
+                    <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${pokemon.id}.png`} width="96" height="96" alt=""/>
+                </div>
+                <div className="">
+                    N°{pokemon.id.toString().padStart(4, "0")}
+                </div>
+                <div className="">
+                    {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
+                </div>
+            </div>
+        </div>
+        <div className="">
+            <div className="">
+                Type
+            </div>
+            <div className="">
+                {pokemon.types.map((type, index) => (
+                    <div key={index} className="">
+                        <img src={`/assets/types/${type.type.name}.png`}/>
+                    </div>))}
+            </div>
+        </div>
+        <div className="">
+            <div className="">
+                Height
+            </div>
+            <div className="">
+                { pokemon.height / 10 } m
+            </div>
+        </div>
+        <div className="">
+            <div className="">
+                Weight
+            </div>
+            <div className="">
+                { pokemon.weight / 10 } kg
+            </div>
+        </div>
+        <div className="">
+            <div className="">
+                Weight
+            </div>
+            <div className="">
+                {pokemon.stats.map((stat, index)=><div key={index}>
+                    <td colSpan="2" className="">
+                        <div className="">{ stat.stat.name }</div>
+                    </td>
+                    <td className="">
+                        <div className="" id="info"> { stat.base_stat } </div>
+                    </td>
+                </div> )}
+            </div>
+        </div>
+            {pokemon.stats.map((stat, index)=><div key={index}>
+                <td colSpan="2" className="">
+                    <div className="">{ stat.stat.name }</div>
+                </td>
+                <td className="">
+                    <div className="" id="info"> { stat.base_stat } </div>
+                </td>
+            </div> )}
+    </div>);
+
+    return (
         <div className="">
             <div className="">
                 <div  className="">
@@ -58,9 +126,7 @@ const Detail = ({pokemon}) => {
                                 <td className="">
                                     <div className="" id="info"> { stat.base_stat } </div>
                                 </td>
-                            </div> )
-
-                            }
+                            </div> )}
                         </tr>
 
                         <tr>

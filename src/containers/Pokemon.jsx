@@ -1,13 +1,12 @@
 import {useParams} from 'react-router-dom';
-import {Detail} from '../components/Detail/index'
-import {useEffect, useState} from "react";
-import {getPokemon} from "./Service";
-import {Item2} from "../components/Item2";
-import {List} from "../components/List";
+import {useContext, useEffect, useState} from "react";
+import {Detail, Item2} from '../components';
+import MainContext from "../contexts/MainContext";
 
 const Pokemon = () => {
-    const { name } = useParams()
-    const [pokemon, setPokemon] = useState({})
+    const { name } = useParams();
+    const [pokemon, setPokemon] = useState({});
+    const {getPokemon} = useContext(MainContext);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -21,11 +20,11 @@ const Pokemon = () => {
         return 'loading';
     }
     return (
-        <div className={"grid lg:grid-cols-2"}>
+        <div className={""}>
             <div>
                 <Item2 pokemonId={pokemon.id}/>
             </div>
-            <div  className={"lg:mt-0 mt-7 overflow-y-scroll overscroll-auto max-h-[38rem]"} id={"pokemons"}>
+            <div  className={""} id={"pokemons"}>
                 <Detail pokemon={pokemon}/>
             </div>
         </div>

@@ -1,6 +1,0 @@
-#main-image{
-    border: solid 6px rgb(125 211 252);
-    background-size: auto auto;
-    background-color: rgba(238, 253, 255, 1);
-    background-image: repeating-linear-gradient(0deg, transparent, transparent 14px, rgba(148, 200, 255, 1) 14px, rgba(148, 200, 255, 1) 22px );
-}

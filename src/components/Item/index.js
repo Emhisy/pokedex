@@ -1,3 +1,5 @@
 import Item from './Item'
+import Item2 from "./Item2";
 
-export {Item};
+
+export {Item, Item2};
