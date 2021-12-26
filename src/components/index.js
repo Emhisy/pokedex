@@ -5,6 +5,8 @@ import {SearchForm} from './SearchForm';
 import {ContactForm} from "./ContactForm";
 import {TypeItem} from './TypeItem';
 import {Tabs} from './Tabs'
+import {DisplayName} from './DisplayName'
+import {CheckBoutton} from './CheckBoutton'
 
 export {
     PokemonDetail,
@@ -14,5 +16,7 @@ export {
     SearchForm,
     ContactForm,
     TypeItem,
-    Tabs
+    Tabs,
+    DisplayName,
+    CheckBoutton
 };

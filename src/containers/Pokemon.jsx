@@ -1,6 +1,6 @@
 import {useParams} from 'react-router-dom';
 import {useContext, useEffect, useState} from "react";
-import {PokemonDetail, PokemonMainImage} from '../components';
+import {PokemonMainImage, Tabs} from '../components';
 import MainContext from "../contexts/MainContext";
 
 const Pokemon = () => {
@@ -24,10 +24,10 @@ const Pokemon = () => {
     return (
         <div className={""} style={{backgroundColor: color}}>
             <div>
-                <PokemonMainImage pokemonId={pokemon.id}/>
+                <PokemonMainImage {...pokemon}/>
             </div>
-            <div  className={"md:-mt-24"} id={"pokemons"}>
-                <PokemonDetail pokemon={pokemon} color={color}/>
+            <div  className={"md:-mt-24"}>
+                <Tabs {...{pokemon, color}}/>
             </div>
         </div>
     )

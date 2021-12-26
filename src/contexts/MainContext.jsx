@@ -13,9 +13,7 @@ const Provider = ({ children }) => {
     const search = useLocation().search;
     const name = new URLSearchParams(search).get('name');
     const [filter, setFilter] = useState("");
-    const [pokemons, setPokemons] = useState([]);
     const [allPokemons, setAllPokemons] = useState([]);
-    const [pokemonId, setPokemonId] = useState('0')
     const [favorite, setFavorite] = useState([])
     const history = createBrowserHistory();
     const Type = {
@@ -56,7 +54,6 @@ const Provider = ({ children }) => {
             window.localStorage.setItem("favorite", "[]")
             storedFavorite = "[]"
         }
-        setFavorite(JSON.parse(storedFavorite))
         return JSON.parse(storedFavorite);
     }
 
@@ -66,11 +63,9 @@ const Provider = ({ children }) => {
     };
 
     const FavoriteChange = (event, id) => {
-        console.log(id)
         let storedFavorite = getFavorite()
 
         const changeStatus = (pokemon, index) => {
-            console.log()
             if(pokemon.id.toString() === id.toString() ){
                 pokemon.favorite = !pokemon.favorite
                     if(pokemon.favorite) {
@@ -82,9 +77,9 @@ const Provider = ({ children }) => {
                     }
                 }
                 storedFavorite.sort((a, b) => a - b)
+                setFavorite(storedFavorite)
 
                 window.localStorage.setItem("favorite", JSON.stringify(storedFavorite))
-                setFavorite(storedFavorite)
             }
             return pokemon
         }
@@ -92,11 +87,6 @@ const Provider = ({ children }) => {
         allPokemons.map((pokemon, index) => {
             return changeStatus(pokemon, index+1)
         })
-        pokemons.map((pokemon, index) => {
-            return changeStatus(pokemon, index+1)
-        })
-
-        setFavorite(storedFavorite)
     }
 
     const handleChange = (event) => {
@@ -104,10 +94,6 @@ const Provider = ({ children }) => {
         setFilter(inputValue);
 
         inputValue === "" ? history.push(`/pokemons`) : history.push(`/pokemons?name=${inputValue}`)
-
-        inputValue === '' ?
-        setPokemons(allPokemons.filter(({id}) => id <= 20)) :
-        setPokemons(allPokemons.filter(({name}) => name.toLowerCase().includes(inputValue.toLowerCase())));
     }
 
     const getPokemons = async (offset, limit) => {
@@ -116,7 +102,7 @@ const Provider = ({ children }) => {
             method: "get",
             url: `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
         });
-        res.data.results.forEach((pokemon, index) => {
+        res.data.results = res.data.results.map((pokemon, index) => {
             pokemon["id"] = offset + index + 1
             pokemon["favorite"] = storedFavorite.includes(offset + index + 1)
             return pokemon
@@ -160,13 +146,16 @@ const Provider = ({ children }) => {
         })
     }
 
+    const getFontColor = (color) => {
+        const red = parseInt(color.slice(1,3), 16)
+        const blue = parseInt(color.slice(3,5), 16)
+        const green = parseInt(color.slice(5,7), 16)
+        return ((red*0.299 + green*0.587 + blue*0.114) < 70) ? "#ffffff80" : "#00000080";
+    }
+
 
     return (
         <MainContext.Provider value={{
-            pokemons,
-            setPokemons,
-            pokemonId,
-            setPokemonId,
             filter,
             setFilter,
             allPokemons,
@@ -180,6 +169,7 @@ const Provider = ({ children }) => {
             getTypes,
             getType,
             onSubmitContactForm,
+            getFontColor,
             Type
         }}>
             {children}

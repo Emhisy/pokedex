@@ -12,10 +12,21 @@ const Pokemons = () => {
         filter,
         getPokemons,
         allPokemons,
+        getFavorite,
+        favorite
     } = useContext(MainContext);
     const [offset, setOffset] = useState(0);
     const isPageBottom = usePageBottom();
     const [pokemons, setPokemons] = useState([])
+
+    useEffect(() => {
+        const storedFavorite = getFavorite()
+        setPokemons(pokemons.map((pokemon, index) => {
+            pokemon["id"] = index + 1
+            pokemon["favorite"] = storedFavorite.includes(index + 1)
+            return pokemon
+        }))
+    }, [favorite])
 
     useEffect(() => {
         const fetchData = async () => {
@@ -40,7 +51,7 @@ const Pokemons = () => {
     return (
         <div className={"grid grid-cols-1 gap-4 mt-4"} id={"pokemons"}>
             <SearchForm handleChange={handleChange} handleSubmit={handleSubmit} filter={filter}/>
-            <PokemonList pokemons={pokemons}/>
+            <PokemonList {...{pokemons}}/>
         </div>
     )
 }
