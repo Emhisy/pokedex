@@ -32,7 +32,8 @@ const PokemonItem = ({name, id, favorite}) => {
                 <div className='grid justify-items-stretch'>
                     {/*<img className={""} src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}/>*/}
                     <img className="justify-self-end"
-                         src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${id.toString().padStart(3, "0")}.png`}
+                         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
+                         // src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${id.toString().padStart(3, "0")}.png`}
                          height={"144px"}
                          width={"144px"}
                          onLoad={() => setLoaded(true)}

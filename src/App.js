@@ -12,7 +12,7 @@ function App() {
 
   return (
       <>
-          <header className={""}>
+          <header className="sticky top-0 z-50">
               <nav className="bg-gray-800">
                   <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
                       <div className="relative flex items-center justify-between h-16">
@@ -66,16 +66,18 @@ function App() {
                   </div>
               </nav>
           </header>
-          <Routes >
-              <Route path="/" element={<Home/>} />
-              <Route path="/pokemons" element={<Pokemons/>} />
-              <Route path="/pokemon/:name" element={<Pokemon/>} />
-              <Route path="/pokemons/type/:type_name" element={<PokemonPerType/>} />
-              <Route path="/favorite" element={<Favorite/>} />
-              <Route path="/types" element={<Types/>} />
-              <Route path="/contact" element={<ContactPage/>} />
-              <Route path="/consign" element={<Consigne/>} />
-          </Routes>
+          <div className={"relative"}>
+              <Routes >
+                  <Route path="/" element={<Home/>} />
+                  <Route path="/pokemons" element={<Pokemons/>} />
+                  <Route path="/pokemon/:name" element={<Pokemon/>} />
+                  <Route path="/pokemons/type/:type_name" element={<PokemonPerType/>} />
+                  <Route path="/favorite" element={<Favorite/>} />
+                  <Route path="/types" element={<Types/>} />
+                  <Route path="/contact" element={<ContactPage/>} />
+                  <Route path="/consign" element={<Consigne/>} />
+              </Routes>
+          </div>
       </>
   );
 }

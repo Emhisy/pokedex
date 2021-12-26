@@ -20,7 +20,7 @@ const Types = () => {
 
     return (
         <div className={"grid justify-items-stretch mt-4"}>
-            <div className={"w-11/12 justify-self-center grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4"}>{
+            <div className={"w-1/2 justify-self-center grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4"}>{
                 types.map((type) => {
                     if(!type.name.includes("shadow") && !type.name.includes("unknown")) {
                         return (<TypeItem {...type} />

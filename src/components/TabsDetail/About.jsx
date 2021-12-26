@@ -1,12 +1,12 @@
 const About = ({id, height, weight, moves, species}) => {
     return <div>
         <label>Base</label>
-        <div className=" grid grid-cols-2">
+        <div className="grid grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
             <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`} width="96" height="96" alt=""/>
             <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${id}.png`} width="96" height="96" alt=""/>
         </div>
         <label>Shiny</label>
-        <div className=" grid grid-cols-2">
+        <div className="grid grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
             <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${id}.png`} width="96" height="96" alt=""/>
             <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/${id}.png`} width="96" height="96" alt=""/>
         </div>
