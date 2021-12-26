@@ -27,9 +27,11 @@ const PokemonPerType = () => {
         fetchData()
     }, [])
 
-    return <div className={" mt-4"}>
-        <PokemonList pokemons={pokemons}/>
-    </div>;
+    return (
+        <div className={" mt-4"}>
+            <PokemonList pokemons={pokemons}/>
+        </div>
+    );
 }
 
 export default PokemonPerType;

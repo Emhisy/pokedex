@@ -1,3 +1,5 @@
+import './DisplayName.css'
+
 const DisplayName = ({id, name, fontColor}) => (
 
     <div className="">

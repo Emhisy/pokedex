@@ -1,6 +1,6 @@
 import mainContext from "../contexts/MainContext";
 import {useContext, useEffect, useState} from "react";
-import {PokemonList, PokemonItem, SearchForm} from '../components'
+import {PokemonList, PokemonItem, SearchForm, Loading} from '../components'
 
 const Favorite = () => {
     const {getFavorite, favorite, getPokemons} = useContext(mainContext)
@@ -24,7 +24,7 @@ const Favorite = () => {
     }, [favorite])
 
     if(allPokemons.length === 0){
-        return 'loading';
+        return <Loading/>;
     }
 
     return (

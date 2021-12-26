@@ -1,3 +1,5 @@
+import './CheckBox.css'
+
 const CheckBoutton = ({id, favorite, FavoriteChange}) =>(
     <label
         htmlFor={`favorite-${id}`}

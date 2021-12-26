@@ -1,6 +1,6 @@
 import {useContext, useEffect, useState} from "react";
 import MainContext from "../contexts/MainContext";
-import {PokemonList, PokemonMainImage, SearchForm} from '../components';
+import {Loading, PokemonList, SearchForm} from '../components';
 import {usePageBottom} from '../utils/index';
 import {useLocation} from "react-router-dom";
 
@@ -40,12 +40,12 @@ const Pokemons = () => {
         }
 
         if(pokemons.length === 0 && allPokemons.length === 0){
-            return "loading";
+            return <Loading/>;
         }
     }, [isPageBottom])
 
     if(allPokemons.length === 0){
-        return 'loading';
+        return <Loading/>;
     }
 
     return (

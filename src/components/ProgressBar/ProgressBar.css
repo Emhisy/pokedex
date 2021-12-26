@@ -1,0 +1,12 @@
+#container-styles {
+    width: 100%;
+    background-color: #e0e0de;
+    border-radius: 50px;
+    height: 7px;
+}
+
+#filler-styles {
+    height: 7px;
+    border-radius: inherit;
+    text-align: right;
+}

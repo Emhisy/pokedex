@@ -7,6 +7,8 @@ import {TypeItem} from './TypeItem';
 import {Tabs} from './Tabs'
 import {DisplayName} from './DisplayName'
 import {CheckBoutton} from './CheckBoutton'
+import {ProgressBar} from './ProgressBar'
+import {Loading} from './Loading'
 
 export {
     PokemonDetail,
@@ -18,5 +20,7 @@ export {
     TypeItem,
     Tabs,
     DisplayName,
-    CheckBoutton
+    CheckBoutton,
+    ProgressBar,
+    Loading
 };

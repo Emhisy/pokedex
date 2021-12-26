@@ -1,6 +1,6 @@
 import {useContext, useEffect, useState} from "react";
 import MainContext from "../contexts/MainContext";
-import {TypeItem} from "../components";
+import {Loading, TypeItem} from "../components";
 
 const Types = () => {
     const {getTypes} = useContext(MainContext)
@@ -15,7 +15,7 @@ const Types = () => {
     }, [])
 
     if(types.length === 0) {
-        return 'loading'
+        return <Loading/>;
     }
 
     return (

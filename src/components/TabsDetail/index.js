@@ -1,5 +1,5 @@
 import About from "./About";
 import Stats from "./Stats";
-import Moves from "./Moves";
+import Natures from "./Natures";
 
-export {About, Stats, Moves}
+export {About, Stats, Natures}

@@ -2,9 +2,10 @@ import './App.css';
 
 import { Routes, Route, NavLink } from "react-router-dom";
 import './index.css';
-import { Pokemons, Pokemon, Favorite, Types, PokemonPerType, ContactPage } from './containers/index'
+import { Pokemons, Pokemon, Favorite, Types, PokemonPerType, ContactPage, Home, Consigne } from './containers'
 import MainContext from "./contexts/MainContext";
 import {useContext} from "react";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 function App() {
     const { filter } = useContext(MainContext);
@@ -66,12 +67,14 @@ function App() {
               </nav>
           </header>
           <Routes >
+              <Route path="/" element={<Home/>} />
               <Route path="/pokemons" element={<Pokemons/>} />
               <Route path="/pokemon/:name" element={<Pokemon/>} />
               <Route path="/pokemons/type/:type_name" element={<PokemonPerType/>} />
               <Route path="/favorite" element={<Favorite/>} />
               <Route path="/types" element={<Types/>} />
               <Route path="/contact" element={<ContactPage/>} />
+              <Route path="/consign" element={<Consigne/>} />
           </Routes>
       </>
   );
