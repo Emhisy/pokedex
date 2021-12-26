@@ -28,7 +28,7 @@ const Favorite = () => {
     }
 
     return (
-        <div className={""}>
+        <div className={" mt-4"}>
             <div  className={""} id={"pokemons"}>
                 <PokemonList pokemons={pokemons} />
             </div>

@@ -27,7 +27,7 @@ const PokemonPerType = () => {
         fetchData()
     }, [])
 
-    return <div>
+    return <div className={" mt-4"}>
         <PokemonList pokemons={pokemons}/>
     </div>;
 }

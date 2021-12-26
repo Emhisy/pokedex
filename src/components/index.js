@@ -4,6 +4,7 @@ import {PokemonList} from './PokemonList';
 import {SearchForm} from './SearchForm';
 import {ContactForm} from "./ContactForm";
 import {TypeItem} from './TypeItem';
+import {Tabs} from './Tabs'
 
 export {
     PokemonDetail,
@@ -12,5 +13,6 @@ export {
     PokemonList,
     SearchForm,
     ContactForm,
-    TypeItem
+    TypeItem,
+    Tabs
 };

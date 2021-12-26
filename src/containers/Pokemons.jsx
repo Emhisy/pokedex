@@ -38,7 +38,7 @@ const Pokemons = () => {
     }
 
     return (
-        <div  className={"grid grid-cols-1 gap-4"} id={"pokemons"}>
+        <div className={"grid grid-cols-1 gap-4 mt-4"} id={"pokemons"}>
             <SearchForm handleChange={handleChange} handleSubmit={handleSubmit} filter={filter}/>
             <PokemonList pokemons={pokemons}/>
         </div>

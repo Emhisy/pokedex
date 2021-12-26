@@ -1,5 +1,14 @@
-const PokemonDetail = ({pokemon}) => {
-    console.log(pokemon)
+import {Tabs} from "../";
+import mainContext from "../../contexts/MainContext";
+import {useContext} from "react";
+import MainContext from "../../contexts/MainContext";
+
+const PokemonDetail = ({pokemon, color}) => {
+
+    return(
+        <Tabs {...{pokemon, color}}/>
+    )
+
     return (
         <div className={""}>
         <div className="">

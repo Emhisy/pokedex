@@ -18,6 +18,26 @@ const Provider = ({ children }) => {
     const [pokemonId, setPokemonId] = useState('0')
     const [favorite, setFavorite] = useState([])
     const history = createBrowserHistory();
+    const Type = {
+        bug: '#91C12F',
+        dark: '#5A5465',
+        dragon: '#0B6DC3',
+        electric: '#F4D23C',
+        fairy: '#EC8FE6',
+        fighting: '#CE416B',
+        fire: '#FF9D55',
+        flying: '#8FA9DE',
+        ghost: '#5269AD',
+        grass: '#63BC5A',
+        ground: '#DE794A',
+        ice: '#73CEC0',
+        normal: '#919AA2',
+        poison: '#AA6BC8',
+        psychic: '#FA7179',
+        rock: '#C5B78C',
+        steel: '#5A8EA2',
+        water: '#5090D6'
+    }
 
 
     useEffect(() => {
@@ -159,7 +179,8 @@ const Provider = ({ children }) => {
             getFavorite,
             getTypes,
             getType,
-            onSubmitContactForm
+            onSubmitContactForm,
+            Type
         }}>
             {children}
         </MainContext.Provider>
